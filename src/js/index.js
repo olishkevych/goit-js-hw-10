@@ -3,8 +3,9 @@ import { fetchCountries } from './fetchCountries';
 import Notiflix from 'notiflix';
 
 const inputEl = document.getElementById('search-box');
-const countryListEl = document.querySelector('.country-list');
 const countryInfoEl = document.querySelector('.country-info');
+const countryListEl = document.querySelector('.country-list');
+
 const DEBOUNCE_DELAY = 300;
 
 inputEl.addEventListener('input', debounce(onInputChange, DEBOUNCE_DELAY, []));
