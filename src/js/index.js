@@ -31,7 +31,9 @@ function onInputChange(event) {
         }
       })
       .catch(error => {
-        Notiflix.Notify.warning('Oops, there is no country with that name');
+        if (error.status === '404') {
+          Notiflix.Notify.warning('Oops, there is no country with that name');
+        }
       });
 }
 
@@ -63,6 +65,6 @@ function createCountryCarddMarkup({
   <ul class="country-card-info">
   <li><b>Capital:</b> ${capital}</li>
   <li><b>Population:</b> ${population}</li>
-  <li><b>Languages:</b> ${Object.values(languages)}</li>
+  <li><b>Languages:</b> ${Object.values([...languages].join(' '))}</li>
   </ul></div>`;
 }
